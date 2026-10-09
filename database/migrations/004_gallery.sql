@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS `gallery` (
+  `id` VARCHAR(50) NOT NULL,
+  `title` VARCHAR(150) NOT NULL,
+  `category` VARCHAR(50) NOT NULL,
+  `src` VARCHAR(255) NOT NULL,
+  `description` TEXT DEFAULT NULL,
+  `display_order` INT DEFAULT 0,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

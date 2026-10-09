@@ -1,0 +1,23 @@
+{
+  "name": "sk-old-cloth-merchant",
+  "version": "1.0.0",
+  "description": "Premium Business Website & B2B Management Suite for S.K. Old Cloth Merchant, Choolai, Chennai",
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:admin": "npm --prefix admin run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "build:admin": "npm --prefix admin run build",
+    "build": "npm run build:frontend && npm run build:admin",
+    "start:backend": "npm --prefix backend start"
+  },
+  "keywords": [
+    "used-clothing",
+    "chennai-wholesale",
+    "cloth-merchant",
+    "textile-bales",
+    "b2b-supplier"
+  ],
+  "author": "S.K. Old Cloth Merchant",
+  "license": "UNLICENSED"
+}

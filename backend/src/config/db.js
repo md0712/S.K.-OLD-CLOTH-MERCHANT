@@ -1,0 +1,248 @@
+const fs = require('fs');
+const path = require('path');
+const logger = require('../utils/logger');
+const { hashPassword } = require('../utils/hash');
+const { ADMIN_EMAIL, ADMIN_PASSWORD } = require('./env');
+
+const DATA_FILE = path.join(__dirname, '..', '..', 'data_store.json');
+
+const INITIAL_DATA = {
+  users: [
+    {
+      id: 'usr-1',
+      name: 'Administrator',
+      email: ADMIN_EMAIL,
+      password: hashPassword(ADMIN_PASSWORD),
+      role: 'admin',
+      createdAt: '2026-01-01T00:00:00.000Z'
+    }
+  ],
+  categories: [
+    {
+      id: 'mens-clothing',
+      name: 'Men’s Clothing',
+      slug: 'mens-clothing',
+      tagline: 'Quality sorted everyday & casual wear for men',
+      description: 'Extensive selection of graded men\'s apparel including branded t-shirts, formal shirts, denim jeans, and comfortable casual wear.',
+      image: '/images/products/men.jpg',
+      items: ['T-Shirts', 'Shirts', 'Jeans', 'Trousers', 'Casual Wear'],
+      baleSpecs: '45kg - 55kg compressed bales',
+      grade: 'Grade A',
+      status: 'active'
+    },
+    {
+      id: 'womens-clothing',
+      name: 'Women’s Clothing',
+      slug: 'womens-clothing',
+      tagline: 'Vibrant tops, dresses, and contemporary styles',
+      description: 'Carefully inspected women\'s fashion wear with vibrant colors, intact stitching, and comfortable daily fabrics.',
+      image: '/images/products/women.jpg',
+      items: ['Tops', 'Dresses', 'Jeans', 'Leggings', 'Casual Wear'],
+      baleSpecs: '45kg - 50kg compressed bales',
+      grade: 'Grade A',
+      status: 'active'
+    },
+    {
+      id: 'kids-clothing',
+      name: 'Kids’ Clothing',
+      slug: 'kids-clothing',
+      tagline: 'Durable, clean, and gentle everyday kids wear',
+      description: 'Sorted children\'s clothing from toddlers to teens, washed and clean, free from tears and heavy stains.',
+      image: '/images/products/kids.jpg',
+      items: ['T-Shirts', 'Dresses', 'Shorts', 'Jeans', 'Kids Wear'],
+      baleSpecs: '40kg - 45kg compressed bales',
+      grade: 'Grade A Clean',
+      status: 'active'
+    },
+    {
+      id: 'jackets-hoodies',
+      name: 'Jackets & Hoodies',
+      slug: 'jackets-hoodies',
+      tagline: 'Heavyweight winter wear and windcheaters',
+      description: 'Substantial winter collection including fleece pullovers, zip-up hoodies, denim jackets, and weather-resistant overcoats.',
+      image: '/images/products/jackets.jpg',
+      items: ['Jackets', 'Sweatshirts', 'Hoodies', 'Fleeces', 'Winter Wear'],
+      baleSpecs: '45kg - 55kg bales',
+      grade: 'Grade A Heavy',
+      status: 'active'
+    },
+    {
+      id: 'garments-fabric',
+      name: 'Garments & Fabric',
+      slug: 'garments-fabric',
+      tagline: 'Bulk sorted textiles, cottons, and denims',
+      description: 'Bales of assorted fabric materials, raw denim cuts, pure cotton apparel, and polyester blends ideal for bulk traders.',
+      image: '/images/products/garments.jpg',
+      items: ['Mixed Bales', 'Cotton', 'Denim', 'Polyester', 'Textile Materials'],
+      baleSpecs: '50kg - 100kg bales',
+      grade: 'Standard Industrial',
+      status: 'active'
+    },
+    {
+      id: 'shoes-accessories',
+      name: 'Shoes & Accessories',
+      slug: 'shoes-accessories',
+      tagline: 'Sorted footwear, belts, bags, and caps',
+      description: 'Assorted accessories and wearable pairs carefully paired, sanitized, and packed for retail and secondhand markets.',
+      image: '/images/products/shoes.jpg',
+      items: ['Footwear', 'Bags', 'Belts', 'Caps', 'Accessories'],
+      baleSpecs: '25kg - 40kg cartons',
+      grade: 'Matched Pairs',
+      status: 'active'
+    }
+  ],
+  products: [
+    {
+      id: 'prod-1',
+      categoryId: 'mens-clothing',
+      name: 'Men\'s Branded T-Shirts Bale',
+      grade: 'Grade A',
+      baleWeight: '45 kg',
+      estPieces: '180 - 210 pcs',
+      image: '/images/products/men.jpg',
+      description: 'Premium cotton round-neck and polo t-shirts in clean, sorted condition with vibrant colors.',
+      status: 'in_stock'
+    },
+    {
+      id: 'prod-2',
+      categoryId: 'mens-clothing',
+      name: 'Men\'s Denim Jeans Bales',
+      grade: 'Grade A',
+      baleWeight: '50 kg',
+      estPieces: '75 - 90 pcs',
+      image: '/images/products/men.jpg',
+      description: 'Sturdy branded denim jeans in straight, slim, and relaxed cuts.',
+      status: 'in_stock'
+    },
+    {
+      id: 'prod-3',
+      categoryId: 'womens-clothing',
+      name: 'Women\'s Western Tops & Blouses',
+      grade: 'Grade A',
+      baleWeight: '45 kg',
+      estPieces: '200 - 240 pcs',
+      image: '/images/products/women.jpg',
+      description: 'Contemporary lightweight tops, floral blouses, and casual everyday wear.',
+      status: 'in_stock'
+    }
+  ],
+  gallery: [
+    {
+      id: 'gal-1',
+      title: 'Central Warehouse Stock & Bales',
+      category: 'Warehouse',
+      src: '/images/gallery/warehouse-bales.jpg'
+    },
+    {
+      id: 'gal-2',
+      title: 'Men\'s Collection - Racks & Folded Denim',
+      category: 'Men',
+      src: '/images/gallery/mens-collection.jpg'
+    },
+    {
+      id: 'gal-3',
+      title: 'Women\'s Collection - Tops & Dresses',
+      category: 'Women',
+      src: '/images/gallery/womens-collection.jpg'
+    },
+    {
+      id: 'gal-4',
+      title: 'Compressed Clothing Bales',
+      category: 'Bales',
+      src: '/images/gallery/clothing-bales-ready.jpg'
+    }
+  ],
+  enquiries: [
+    {
+      id: 'enq-sample-1',
+      name: 'Ramesh Kumar',
+      businessName: 'Chennai Garments Mart',
+      phone: '+91 98401 23456',
+      whatsapp: '+91 98401 23456',
+      category: 'Men’s Clothing',
+      quantity: '5 Bales',
+      location: 'Madurai, TN',
+      message: 'Looking for trial order of Grade A jeans and cotton shirts.',
+      status: 'pending',
+      createdAt: '2026-10-08T10:30:00.000Z'
+    }
+  ],
+  websiteContent: {
+    heroTitle: 'TRUST • QUALITY • AFFORDABLE',
+    heroTagline: 'Quality Used Clothing for Wholesale & Retail',
+    heroDescription: 'Your reliable partner for quality pre-owned clothing, bulk supply and retail requirements in Chennai.',
+    businessPhone: '+91 94443 53151',
+    businessEmail: 'skoldclothsupplier@gmail.com',
+    location: 'Choolai, Chennai – 600112'
+  }
+};
+
+class Database {
+  constructor() {
+    this.data = this.loadData();
+  }
+
+  loadData() {
+    try {
+      if (fs.existsSync(DATA_FILE)) {
+        const raw = fs.readFileSync(DATA_FILE, 'utf-8');
+        return JSON.parse(raw);
+      }
+    } catch (err) {
+      logger.error('Error loading data_store.json, creating initial', err);
+    }
+    this.saveData(INITIAL_DATA);
+    return INITIAL_DATA;
+  }
+
+  saveData(dataToSave = this.data) {
+    try {
+      fs.writeFileSync(DATA_FILE, JSON.stringify(dataToSave, null, 2), 'utf-8');
+    } catch (err) {
+      logger.error('Failed to save data_store.json', err);
+    }
+  }
+
+  get(collection) {
+    return this.data[collection] || [];
+  }
+
+  set(collection, items) {
+    this.data[collection] = items;
+    this.saveData();
+    return this.data[collection];
+  }
+
+  find(collection, predicate) {
+    const list = this.get(collection);
+    return list.find(predicate);
+  }
+
+  insert(collection, item) {
+    if (!this.data[collection]) this.data[collection] = [];
+    const newItem = { id: `id-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`, createdAt: new Date().toISOString(), ...item };
+    this.data[collection].unshift(newItem);
+    this.saveData();
+    return newItem;
+  }
+
+  update(collection, id, updates) {
+    const list = this.get(collection);
+    const index = list.findIndex(i => i.id === id);
+    if (index === -1) return null;
+    this.data[collection][index] = { ...this.data[collection][index], ...updates, updatedAt: new Date().toISOString() };
+    this.saveData();
+    return this.data[collection][index];
+  }
+
+  delete(collection, id) {
+    const list = this.get(collection);
+    const initialLen = list.length;
+    this.data[collection] = list.filter(i => i.id !== id);
+    this.saveData();
+    return list.length !== initialLen;
+  }
+}
+
+const db = new Database();
+module.exports = db;
