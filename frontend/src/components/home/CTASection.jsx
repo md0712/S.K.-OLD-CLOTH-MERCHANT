@@ -63,7 +63,7 @@ export default function CTASection({ onOpenQuoteModal }) {
           </div>
 
           <p className="text-xs text-gray-400 pt-4">
-            📍 Choolai, Chennai – 600112 • Direct Phone: {COMPANY.phone} • Response within business hours
+            📍 {COMPANY.location} • Direct Phone: {COMPANY.phone} • Response within business hours
           </p>
         </div>
       </Container>

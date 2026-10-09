@@ -65,8 +65,8 @@ export default function Contact() {
           {/* Embedded Interactive Map */}
           <div className="rounded-2xl overflow-hidden aspect-21/9 min-h-[300px] bg-gray-100 border border-gray-200 relative">
             <iframe
-              title="S.K. Old Cloth Merchant Choolai Chennai Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15545.975432692299!2d80.2555543!3d13.0886105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265e317c093a7%3A0xe5a36aa712a2aa6a!2sChoolai%2C%20Chennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              title={`${COMPANY.name} Choolai Chennai Location`}
+              src="https://maps.google.com/maps?q=No.+1%2F34%2C+A-Block%2C+Kandappa+Street%2C+Choolai%2C+Chennai+-+600112&t=&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

@@ -51,8 +51,8 @@ export default function MobileMenu({ isOpen, onClose, onOpenQuoteModal }) {
                   <div className="font-serif font-bold text-sm text-[#0d2818] leading-tight">
                     {COMPANY.name}
                   </div>
-                  <div className="text-[10px] text-gray-500 font-medium">
-                    Choolai, Chennai – 600112
+                  <div className="text-[10px] text-gray-500 font-medium line-clamp-1">
+                    {COMPANY.location}
                   </div>
                 </div>
               </div>

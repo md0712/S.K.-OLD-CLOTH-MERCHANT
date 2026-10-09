@@ -24,7 +24,7 @@ export default function AboutPreview() {
               <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-white/95 backdrop-blur-md shadow-lg border border-gray-100 flex items-center justify-between">
                 <div>
                   <div className="text-xs font-semibold text-emerald-800 uppercase tracking-wider">
-                    S.K. OLD CLOTH MERCHANT
+                    {COMPANY.name}
                   </div>
                   <div className="font-serif font-bold text-gray-900 text-sm sm:text-base">
                     Central Storage & Baling Warehouse
@@ -44,7 +44,7 @@ export default function AboutPreview() {
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#16422b]/10 text-[#16422b] border border-[#16422b]/20">
               <Warehouse className="w-3.5 h-3.5" />
-              <span>ABOUT S.K. OLD CLOTH MERCHANT</span>
+              <span>ABOUT {COMPANY.name}</span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-4.5xl font-bold tracking-tight text-[#0d2818] leading-tight">
@@ -56,7 +56,7 @@ export default function AboutPreview() {
             </p>
 
             <p className="text-sm text-gray-600 leading-relaxed">
-              Based in Choolai, Chennai, S.K. Old Cloth Merchant is a dedicated wholesale and retail supplier specializing in used clothing and textile garments. Established in 2017, we have earned customer trust through transparent grading, competitive pricing, and steady bale inventory.
+              Based at Kandappa Street, Choolai, {COMPANY.name} is a dedicated wholesale and retail supplier specializing in used clothing and textile garments. Established in 2017, we have earned customer trust through transparent grading, competitive pricing, and steady bale inventory.
             </p>
 
             {/* Small Statistics Grid (2017 Established, Quality Checked Stock, Wholesale & Retail Supply, Chennai Based) */}

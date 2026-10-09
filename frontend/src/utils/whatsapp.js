@@ -10,25 +10,25 @@ export function getWhatsAppUrl({ category, product, type = 'general', customText
   if (customText) {
     message = customText;
   } else if (type === 'wholesale') {
-    message = `Hello S.K. Old Cloth Merchant, I am interested in wholesale bulk clothing supply${
+    message = `Hello ${COMPANY.name}, I am interested in wholesale bulk clothing supply${
       category ? ` for ${category}` : ''
     }. Please share current bale availability, minimum order quantity, and pricing details.`;
   } else if (type === 'retail') {
-    message = `Hello S.K. Old Cloth Merchant, I am looking to purchase retail selections of used clothing${
+    message = `Hello ${COMPANY.name}, I am looking to purchase retail selections of used clothing${
       category ? ` (${category})` : ''
     }. Please share available pieces and store visit timings in Choolai, Chennai.`;
   } else if (type === 'quote') {
-    message = `Hello S.K. Old Cloth Merchant, I would like to request a quotation for used clothing stock${
+    message = `Hello ${COMPANY.name}, I would like to request a quotation for used clothing stock${
       category ? ` - Category: ${category}` : ''
     }. My requirements are for regular supply in Tamil Nadu.`;
   } else if (type === 'internship') {
-    message = `Hello S.K. Old Cloth Merchant, I would like to apply for the Internship & Practical Training Program at your Choolai, Chennai warehouse. Please share details regarding available tracks, batch dates, and application steps.`;
+    message = `Hello ${COMPANY.name}, I would like to apply for the Internship & Practical Training Program at your Choolai, Chennai warehouse. Please share details regarding available tracks, batch dates, and application steps.`;
   } else if (product || category) {
     const item = product || category;
-    message = `Hello S.K. Old Cloth Merchant, I am interested in your "${item}" collection. Please share available stock, grading details, wholesale bale pricing, and pictures.`;
+    message = `Hello ${COMPANY.name}, I am interested in your "${item}" collection. Please share available stock, grading details, wholesale bale pricing, and pictures.`;
   } else {
     // Default message specified in requirements
-    message = `Hello S.K. Old Cloth Merchant, I am interested in used clothing. Please share available categories, stock, pricing and wholesale details.`;
+    message = `Hello ${COMPANY.name}, I am interested in used clothing. Please share available categories, stock, pricing and wholesale details.`;
   }
 
   const encodedMessage = encodeURIComponent(message);

@@ -1,7 +1,7 @@
 export const COMPANY = {
-  name: "S.K. OLD CLOTH MERCHANT",
-  legalName: "S.K. Old Cloth Merchant",
-  tradeName: "S.K. Old Cloth Supplier",
+  name: "S K OLD CLOTH SUPPLIER",
+  legalName: "S K Old Cloth Supplier",
+  tradeName: "S K Old Cloth Supplier",
   tagline: "Quality Used Clothing • Wholesale & Retail",
   brandMessage: "Trusted Quality. Affordable Prices. Reliable Supply.",
   establishedYear: 2017,
@@ -9,9 +9,9 @@ export const COMPANY = {
   phone: "+91 94443 53151",
   phoneRaw: "919444353151",
   email: "skoldclothsupplier@gmail.com",
-  location: "Choolai, Chennai – 600112",
-  address: "Choolai, Chennai, Tamil Nadu – 600112, India",
-  googleMapsUrl: "https://maps.google.com/?q=Choolai,+Chennai+-+600112",
+  location: "No. 1/34, A-Block, Kandappa Street, Choolai, Chennai - 600 112",
+  address: "No. 1/34, A-Block, Kandappa Street, Choolai, Chennai - 600 112, Tamil Nadu, India",
+  googleMapsUrl: "https://maps.google.com/?q=No.+1/34,+A-Block,+Kandappa+Street,+Choolai,+Chennai+-+600112",
   businessType: "Used / Pre-Owned Clothing Wholesale & Retail Supplier",
   workingHours: "Monday – Saturday: 9:30 AM to 8:30 PM",
   socials: {

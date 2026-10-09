@@ -84,8 +84,8 @@ export default function About({ onOpenQuoteModal }) {
                 <div className="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-1">
                   Central Warehouse Facility
                 </div>
-                <div className="font-serif text-xl font-bold">
-                  Choolai, Chennai – 600112
+                <div className="font-serif text-lg sm:text-xl font-bold">
+                  {COMPANY.location}
                 </div>
               </div>
             </div>
