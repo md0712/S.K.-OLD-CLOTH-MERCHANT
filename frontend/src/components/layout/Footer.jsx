@@ -33,11 +33,11 @@ export default function Footer() {
           {/* Col 1: Brand & Bio (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-white p-1 flex items-center justify-center border border-emerald-700/40 shadow-xs shrink-0 overflow-hidden">
+              <div className="w-11 h-11 rounded-full bg-white p-0.5 flex items-center justify-center border border-emerald-700/50 shadow-xs shrink-0 overflow-hidden">
                 <img
                   src="/logo.png"
                   alt={COMPANY.name}
-                  className="w-full h-full object-contain filter drop-shadow-xs"
+                  className="w-full h-full object-contain rounded-full"
                 />
               </div>
               <div>
