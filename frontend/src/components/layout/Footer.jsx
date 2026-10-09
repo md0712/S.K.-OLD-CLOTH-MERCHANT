@@ -170,8 +170,22 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p>© 2026 S.K. OLD CLOTH MERCHANT. All Rights Reserved.</p>
+
+          {/* Agency Credit */}
+          <p className="flex items-center gap-1 text-gray-400">
+            <span>Created by</span>
+            <a
+              href="https://dmdigitallab.netlify.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-400 hover:text-emerald-300 font-semibold underline underline-offset-4 decoration-emerald-500/40 hover:decoration-emerald-300 transition-all"
+            >
+              DM Digital Labs
+            </a>
+          </p>
+
           <div className="flex items-center gap-6">
             <Link to="/privacy-policy" className="hover:text-gray-200 transition-colors">
               Privacy Policy
