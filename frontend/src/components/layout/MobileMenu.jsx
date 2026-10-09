@@ -40,11 +40,11 @@ export default function MobileMenu({ isOpen, onClose, onOpenQuoteModal }) {
             {/* Drawer Header */}
             <div className="p-5 flex items-center justify-between border-b border-gray-100 bg-[#f9f8f4]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white p-0.5 flex items-center justify-center shadow-xs border border-emerald-900/20 shrink-0 overflow-hidden">
+                <div className="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shadow-xs border border-emerald-900/15 shrink-0 overflow-hidden">
                   <img
                     src="/logo.png"
                     alt={COMPANY.name}
-                    className="w-full h-full object-contain rounded-full"
+                    className="w-full h-full object-contain filter drop-shadow-xs"
                   />
                 </div>
                 <div>

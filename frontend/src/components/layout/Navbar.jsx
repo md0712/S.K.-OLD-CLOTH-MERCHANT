@@ -120,11 +120,11 @@ export default function Navbar({ onOpenQuoteModal }) {
               className="flex items-center gap-2.5 sm:gap-3 min-w-0 max-w-[calc(100%-54px)] sm:max-w-none focus:outline-none focus:ring-0 select-none group"
             >
               {/* Official Brand Logo Badge */}
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white p-0.5 flex items-center justify-center shadow-xs border border-emerald-900/20 group-hover:border-emerald-700/50 group-hover:shadow-sm transition-all shrink-0 overflow-hidden">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white p-1 flex items-center justify-center shadow-xs border border-emerald-900/15 group-hover:border-emerald-700/40 group-hover:shadow-sm transition-all shrink-0 overflow-hidden">
                 <img
                   src="/logo.png"
                   alt={COMPANY.name}
-                  className="w-full h-full object-contain rounded-full"
+                  className="w-full h-full object-contain filter drop-shadow-xs"
                 />
               </div>
 
